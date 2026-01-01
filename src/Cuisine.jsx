@@ -16,26 +16,32 @@ const Cuisine = () => {
   };
 
   return (
-    <div className="relative max-w-300 scrollbar-hide   px-2">
+    <div className="relative w-full overflow-hidden items-center px-12">
 
+   
 
-      {/* Left Button */}
-      <LeftArrowButton onClick={() => scroll("left")} />
+      {/* LEFT ARROW */}
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20">
+        <LeftArrowButton onClick={() => scroll("left")} />
+      </div>
 
-      {/* Scroll Area */}
+      {/* SCROLL ROW */}
       <div
         ref={scrollRef}
-        className="flex gap-1 overflow-x-auto scrollbar-hide scroll-smooth"
+        className="flex gap-2 overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth snap-x snap-mandatory min-w-0 max-w-full"
       >
         {cuisines.map((item) => (
-          <div key={item.id} className="shrink-0 w-fit snap-start">
+          <div key={item.id} className="shrink-0 snap-start min-w-0">
             <CuisineCard name={item.name} img={item.img} />
           </div>
         ))}
       </div>
 
-      {/* Right Button */}
-      <RightArrowButton onClick={() => scroll("right")} />
+      {/* RIGHT ARROW */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20">
+        <RightArrowButton onClick={() => scroll("right")} />
+      </div>
+
     </div>
   );
 };

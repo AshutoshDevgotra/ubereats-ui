@@ -56,9 +56,9 @@ const SideBar = () => {
   { id: "offers", label: "Offers", outline: AiOutlineTag, fill: AiFillTag },
 ];
  return (
-    <div className="flex w-full ">
+    <div className="flex ">
   {/* Sidebar */}
-  <aside className="h-screen w-60 bg-white overflow-y-auto">
+  <aside className="h-screen w-full bg-white overflow-y-auto scrollbar-hide">
 
       <div className="p-3">
         {menu.map((item) => {

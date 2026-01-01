@@ -17,19 +17,19 @@ const Navbar = () => {
   const [location, setLocation] = useState("Enter your location");
   return (
     // Navbar container
-    
-    <div className="flex  fixed right-0 top-0 left-0 bg-white  items-center space-x-2 p-3 justify-between z-50">
 
-      <div className="flex items-center gap-5 mx-5">
+    <div className="flex fixed inset-x-0 top-0 bg-white items-center space-x-2 p-3 justify-between z-50 px-10">
+
+      <div className="flex items-center gap-5 ">
 
         <div className="hover:bg-gray-200 px-2 py-2 rounded-full">
         {/* hamburger menu */}
-          <GiHamburgerMenu className="text-2xl" />
+          <GiHamburgerMenu className="text-xl" />
         </div>
 {/* logo */}
        <div className="flex items-center gap-1">
-          <span className="text-2xl font-medium">Uber</span>
-          <span className="text-2xl font-bold">Eats</span>
+          <span className="text-xl font-medium">Uber</span>
+          <span className="text-xl font-bold">Eats</span>
        </div>
       
 {/* Delivery Pickup Toggle */}
@@ -60,15 +60,15 @@ const Navbar = () => {
       {/* search bar */}
 <SearchBar />
 {/* get ride */}
-<div className="flex items-center gap-6">
+<div className="flex items-center gap-6 ">
 {!isLoggedIn && (
-  <div className="hover:underline cursor-pointer flex items-center gap-3">
+  <div className="hover:underline cursor-pointer flex items-center  gap-1 px-3">
     Get a Ride <FaArrowUpRightFromSquare />
   </div>
 )}
 {/* loggedin then cart in navbar */}
         {isLoggedIn ? (
-          <button className="text-2xl  px-4 py-1 ">
+          <button className="text-xl  px-4 py-1 ">
             <LuShoppingCart />
           </button>
         ) : (

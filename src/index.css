@@ -1,6 +1,7 @@
+
 @import "tailwindcss";
 
-Hide horizontal scrollbar but keep scrolling
+/* Hide horizontal scrollbar but keep scrolling */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -8,3 +9,12 @@ Hide horizontal scrollbar but keep scrolling
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+/* Fallback utility for Tailwind plugin 'scrollbar-hide' */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+} 
