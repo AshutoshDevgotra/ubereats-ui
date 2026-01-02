@@ -1,12 +1,11 @@
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./navbar";
-import Hero from "./hero";
-import Footer from "./Footer";
-import Cuisine from "./cuisine";
 import Sidebar from "./SideBar";
-import Filters from "./Filters";
-
-
-
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import Home from "./pages/Home";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
@@ -14,18 +13,28 @@ const App = () => {
 
       <Navbar />
 
-      <div className="flex pt-16 min-w-0 px-10">
+      <Routes>
 
-        <Sidebar />
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
 
-        <div className="flex-1 min-w-0 overflow-hidden">
-          <Cuisine />
-          <Filters />
-          <Hero />
-          {/* <Footer /> */}
-        </div>
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <div className="flex pt-16 min-w-0 px-10">
+                <Sidebar />
+                <div className="flex-1 min-w-0 overflow-hidden">
+                  <Home />
+                </div>
+              </div>
+            </ProtectedRoute>
+          }
+        />
 
-      </div>
+      </Routes>
+
     </div>
   );
 };

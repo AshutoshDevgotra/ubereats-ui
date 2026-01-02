@@ -1,45 +1,44 @@
 import React from "react";
-
+import { RiMic2AiFill } from "react-icons/ri";
 const Hero = () => {
   return (
-    <section className="w-full flex justify-center relative overflow-hidden z-10">
-      <div className="relative w-full max-w-6xl mx-auto overflow-hidden">
+    <section className="relative w-full h-lvh mt-16 overflow-hidden">
 
-        {/* HERO IMAGE */}
-        <img
-          src="/assets/uber-eats.jpg"
-          alt="Hero"
-          className="w-full h-auto object-cover"
-        />
+      {/* HERO IMAGE */}
+      <img
+        src="/assets/uber-eats.jpg"
+        alt="Hero"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
-        {/* OVERLAY */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 overflow-hidden">
+      {/* DARK OVERLAY */}
+      <div className="absolute inset-0 " />
 
-          <div className="w-full max-w-xl overflow-hidden">
+      {/* CONTENT */}
+      <section className="relative w-full h-105 text-white flex items-center justify-end px-24 mt-48">
+  <div className="max-w-xl text-right">
+    <h1 className="text-5xl font-bold leading-tight">
+      What are you craving right now?
+    </h1>
 
-            <h1 className="text-5xl font-bold">
-              Order delivery near you
-            </h1>
+    <p className="mt-4 text-lg text-gray-300">
+      Tell us your mood — we’ll find your perfect meal.
+    </p>
 
-            <p className="text-lg mt-6">
-              Get your favorite food delivered fast to your doorstep.
-            </p>
+    <div className="mt-8 flex justify-end gap-4">
+      <button className="px-6 py-3 bg-white text-black rounded-full font-medium hover:scale-105 transition flex items-center gap-2">
+        <RiMic2AiFill />Talk to AI
+      </button>
 
-            <div className="mt-10 w-full overflow-hidden">
-              <input
-                type="text"
-                placeholder="Enter your delivery location"
-                className="box-border w-full px-4 py-2 border border-white rounded-lg bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
+      <button className="px-6 py-3 border border-white rounded-full hover:scale-105 transition">
+        🔥 Quick Picks
+      </button>
+    </div>
+  </div>
+</section>
 
-              <button className="mt-4 w-full px-4 py-3 bg-black rounded-xl hover:scale-105 transition">
-                Search
-              </button>
-            </div>
 
-          </div>
-        </div>
-      </div>
+
     </section>
   );
 };
