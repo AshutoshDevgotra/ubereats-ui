@@ -3,7 +3,7 @@ import { ImCross } from "react-icons/im";
 import { IoSearch } from "react-icons/io5";
 import { IoTime } from "react-icons/io5";
 
-export default function SearchAddress({ close, setLocation }) {
+export default function GetLocation({ close, setLocation }) {
   const locations = ["Mississauga, ON", "Toronto, ON", "Brampton, ON"];
 
   return (

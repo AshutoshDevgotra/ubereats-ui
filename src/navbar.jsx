@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import DeliveryPickupToggle from "./DeliveryPickupToggle.jsx";
 import { LuShoppingCart } from "react-icons/lu";
-import SearchAddress from "./SearchAddress.jsx";
+import GetLocation from "./GetLocation.jsx";
 import { FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { Search } from "lucide-react";
@@ -84,7 +84,7 @@ const Navbar = () => {
 
 
       {openLocation && (
-  <SearchAddress
+  <GetLocation
     close={() => setOpenLocation(false)}
     setLocation={setLocation}
   />

@@ -5,19 +5,20 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
+import Store from "./pages/Store";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
-
       <Navbar />
 
       <Routes>
+        <Route path="/*" element={<Landing />} />
 
-        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/store/:slug" element={<Store />} />
 
         <Route
           path="/home"
@@ -32,9 +33,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-
       </Routes>
-
     </div>
   );
 };

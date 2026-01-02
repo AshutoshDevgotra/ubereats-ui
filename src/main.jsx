@@ -8,7 +8,7 @@ import Signup from './pages/SignUp.jsx'
 import Home from './pages/Home.jsx'
 const root = createRoot(document.getElementById('root'))
 root.render(
-  <StrictMode>
+  
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
@@ -18,5 +18,5 @@ root.render(
         <Route path="/home" element={<Home />} />
       </Routes>
     </BrowserRouter>
-  </StrictMode>
+  
 )

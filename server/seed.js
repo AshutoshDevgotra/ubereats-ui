@@ -11,6 +11,7 @@ await Restaurant.insertMany([
 
 {
   name: "Haveli",
+  slug: "haveli",
   cover_image: "/images/haveli-cover.jpg",
   logo: "/images/haveli-logo.png",
   address: "GT Road, Jalandhar",
@@ -39,6 +40,7 @@ await Restaurant.insertMany([
 
 {
   name: "Chawla Chicken",
+  slug: "chawla-chicken",
   cover_image: "/images/chawla-cover.jpg",
   logo: "/images/chawla-logo.png",
   address: "Model Town, Jalandhar",
@@ -67,6 +69,7 @@ await Restaurant.insertMany([
 
 {
   name: "Love Italy",
+  slug: "love-italy",
   cover_image: "/images/love-italy-cover.jpg",
   logo: "/images/love-italy-logo.png",
   address: "Lajpat Nagar, Jalandhar",
@@ -97,6 +100,7 @@ await Restaurant.insertMany([
 
 {
   name: "Bittu Tikki Wala",
+  slug: "bittu-tikki-wala",
   cover_image: "/images/bittu-cover.jpg",
   logo: "/images/bittu-logo.png",
   address: "Rainak Bazaar, Jalandhar",
@@ -125,6 +129,7 @@ await Restaurant.insertMany([
 ,
 {
   name: "Sagar Ratna",
+  slug: "sagar-ratna",
   cover_image: "/images/sagar-cover.jpg",
   logo: "/images/sagar-logo.png",
   address: "Model Town, Jalandhar",
@@ -146,6 +151,7 @@ await Restaurant.insertMany([
 
 {
   name: "The Chocolate Room",
+  slug: "the-chocolate-room",
   cover_image: "/images/chocolate-room-cover.jpg",
   logo: "/images/chocolate-room-logo.png",
   address: "BMC Chowk, Jalandhar",
@@ -167,6 +173,7 @@ await Restaurant.insertMany([
 
 {
   name: "Yo! China",
+  slug: "yo-china",
   cover_image: "/images/yochina-cover.jpg",
   logo: "/images/yochina-logo.png",
   address: "Lajpat Nagar, Jalandhar",
@@ -188,6 +195,7 @@ await Restaurant.insertMany([
 
 {
   name: "Gopal Sweets",
+  slug: "gopal-sweets",
   cover_image: "/images/gopal-cover.jpg",
   logo: "/images/gopal-logo.png",
   address: "Civil Lines, Jalandhar",
@@ -209,6 +217,7 @@ await Restaurant.insertMany([
 
 {
   name: "Pind Balluchi",
+  slug: "pind-balluchi",
   cover_image: "/images/pind-cover.jpg",
   logo: "/images/pind-logo.png",
   address: "GT Road, Jalandhar",
@@ -229,6 +238,7 @@ await Restaurant.insertMany([
 },
 {
   name: "Belgian Waffle",
+  slug: "belgian-waffle",
   cover_image: "/images/belgian-cover.jpg",
   logo: "/images/belgian-logo.png",
   address: "Model Town, Jalandhar",

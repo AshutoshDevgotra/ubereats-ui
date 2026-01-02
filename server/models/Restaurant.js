@@ -7,13 +7,14 @@ const ReviewSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 const MenuItemSchema = new mongoose.Schema({
-  name: String,
+   name: String,
   description: String,
   price: Number,
   image: String,
   veg: Boolean,
   spicy: Boolean,
-  bestseller: Boolean,
+  rating: Number,
+  bestseller: Boolean
 });
 
 const RestaurantSchema = new mongoose.Schema({
@@ -21,6 +22,7 @@ const RestaurantSchema = new mongoose.Schema({
   cover_image: String,
   logo: String,
   address: String,
+  slug: { type: String, unique: true },
 
   location: {
     lat: Number,
