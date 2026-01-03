@@ -10,9 +10,16 @@ import { FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { Search } from "lucide-react";
 import SearchBar from "./SearchBar.js";
+import { useAuthStore } from "./store/useAuthStore";
+import { Link } from "react-router-dom";
+import { useCartStore } from "./store/useCartStore";
+
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const user = useAuthStore(state => state.user);
+
+  const cart = useCartStore(state => state.cart);
+
   const [openLocation, setOpenLocation] = useState(false);
   const [location, setLocation] = useState("Enter your location");
   return (
@@ -27,11 +34,13 @@ const Navbar = () => {
           <GiHamburgerMenu className="text-xl" />
         </div>
 {/* logo */}
+<Link href="/home">
+
        <div className="flex items-center gap-1">
           <span className="text-xl font-medium">Uber</span>
           <span className="text-xl font-bold">Eats</span>
        </div>
-      
+      </Link>
 {/* Delivery Pickup Toggle */}
 
       <DeliveryPickupToggle />
@@ -61,22 +70,27 @@ const Navbar = () => {
 <SearchBar />
 {/* get ride */}
 <div className="flex items-center gap-6 ">
-{!isLoggedIn && (
-  <div className="hover:underline cursor-pointer flex items-center  gap-1 px-3">
-    Get a Ride <FaArrowUpRightFromSquare />
-  </div>
+{user ? (
+  <Link to="/cart">
+    <button className="relative text-xl px-4 py-1">
+      <LuShoppingCart />
+
+      {cart.length > 0 && (
+        <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+          {cart.reduce((a, b) => a + b.qty, 0)}
+        </span>
+      )}
+    </button>
+  </Link>
+) : (
+  <>
+    <LoginButton />
+    <SignupButton />
+  </>
 )}
-{/* loggedin then cart in navbar */}
-        {isLoggedIn ? (
-          <button className="text-xl  px-4 py-1 ">
-            <LuShoppingCart />
-          </button>
-        ) : (
-          <>
-            <LoginButton onLogin={() => setIsLoggedIn(true)}  />
-            <SignupButton onSignup={() => setIsLoggedIn(true)} />
-          </>
-        )}
+
+
+
         
       </div>
       

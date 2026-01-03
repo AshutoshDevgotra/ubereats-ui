@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../store/useAuthStore";
+
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const navigate = useNavigate();
-
+  const login = useAuthStore(state => state.login);
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -21,10 +23,8 @@ const Login = () => {
     if (!res.ok) return alert(data);
 
     // store session
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("user", JSON.stringify(data.user));
-
-    navigate("/home");
+    login(data.user, data.token);     // ← THIS is the correct call
+navigate("/home");
   };
 
   return (
