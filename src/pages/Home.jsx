@@ -7,9 +7,8 @@ import RestaurantsNearYou from "../components/RestaurantsNearYou";
 
 const Home = () => {
   return (
-    <div className="flex pt-16 min-w-0 px-10">
-      <Navbar />
-      <SideBar />
+    <div className="flex min-w-0 px-10">
+    
 
       <div className="flex-1 min-w-0 overflow-hidden">
         <Cuisine />

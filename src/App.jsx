@@ -8,16 +8,16 @@ import Home from "./pages/Home";
 import Store from "./pages/Store";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-const App = () => {
+export default function App() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
       <Navbar />
 
       <Routes>
-        <Route path="/*" element={<Landing />} />
-
+        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+
         <Route path="/store/:slug" element={<Store />} />
 
         <Route
@@ -36,6 +36,4 @@ const App = () => {
       </Routes>
     </div>
   );
-};
-
-export default App;
+}
