@@ -38,19 +38,8 @@ const RestaurantsNearYou = () => {
                 ⭐ {r.rating} • ⏱ {r.delivery_time} mins{r.price_range ? ` • ${r.price_range}` : ''}
               </p>
 
-              {/* Menu preview */}
-              <div className="mt-3">
-                <p className="text-sm font-medium">Menu:</p>
-                <div className="flex gap-3 mt-2">
-                  {(r.menu || []).slice(0,2).map(item => (
-                    <div key={item._id || item.name} className="w-28">
-                      <img src={`http://localhost:5000${item.image}`} className="h-16 w-full object-cover rounded" alt={item.name} />
-                      <p className="text-xs truncate">{item.name}</p>
-                      <p className="text-xs font-semibold">₹{item.price}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+             
+              
 
               {/* Reviews preview */}
               <div className="mt-3 text-sm text-gray-600">
