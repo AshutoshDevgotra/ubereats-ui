@@ -18,6 +18,7 @@ import { useLocationStore } from "./store/useLocationStore";
 
 const Navbar = () => {
   const user = useAuthStore(state => state.user);
+  const logout = useAuthStore(state => state.logout);
 
   const cart = useCartStore(state => state.cart);
 
@@ -69,23 +70,32 @@ const Navbar = () => {
 {/* get ride */}
 <div className="flex items-center gap-6 ">
 {user ? (
-  <Link to="/cart">
-    <button className="relative text-xl px-4 py-1">
-      <LuShoppingCart />
+  <div className="flex items-center gap-4">
+    <Link to="/cart">
+      <button className="relative text-xl px-4 py-1">
+        <LuShoppingCart />
+        {cart.length > 0 && (
+          <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+            {cart.reduce((a, b) => a + b.qty, 0)}
+          </span>
+        )}
+      </button>
+    </Link>
 
-      {cart.length > 0 && (
-        <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-          {cart.reduce((a, b) => a + b.qty, 0)}
-        </span>
-      )}
+    <button
+      onClick={logout}
+      className="text-sm bg-gray-200 px-3 py-1 rounded hover:bg-gray-300"
+    >
+      Logout
     </button>
-  </Link>
+  </div>
 ) : (
   <>
     <LoginButton />
     <SignupButton />
   </>
 )}
+
 
 
 
