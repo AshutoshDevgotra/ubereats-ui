@@ -13,6 +13,7 @@ import SearchBar from "./SearchBar.js";
 import { useAuthStore } from "./store/useAuthStore";
 import { Link } from "react-router-dom";
 import { useCartStore } from "./store/useCartStore";
+import { useLocationStore } from "./store/useLocationStore";
 
 
 const Navbar = () => {
@@ -21,7 +22,8 @@ const Navbar = () => {
   const cart = useCartStore(state => state.cart);
 
   const [openLocation, setOpenLocation] = useState(false);
-  const [location, setLocation] = useState("Enter your location");
+  const location = useLocationStore(state => state.location);
+
   return (
     // Navbar container
 
@@ -54,14 +56,10 @@ const Navbar = () => {
         {/* location icon */}
 
         <FaLocationDot />
-        <button
-  readOnly
-  onClick={() => setOpenLocation(true)}
-  
-  className=" px-1  py-2  focus:outline-none"
->
-  {location}
+       <button onClick={() => setOpenLocation(true)} className="px-1 py-2">
+  {location?.address || "Detecting location..."}
 </button>
+
 </div>
        
 </div>
@@ -97,12 +95,9 @@ const Navbar = () => {
 
 
 
-      {openLocation && (
-  <GetLocation
-    close={() => setOpenLocation(false)}
-    setLocation={setLocation}
-  />
-)}
+     {openLocation && <GetLocation close={() => setOpenLocation(false)} />}
+
+
     </div>
   );
 };
