@@ -7,7 +7,7 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import Store from "./pages/Store";
 import ProtectedRoute from "./components/ProtectedRoute";
-
+import Checkout from "./pages/Checkout";
 export default function App() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
@@ -19,6 +19,7 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
 
         <Route path="/store/:slug" element={<Store />} />
+        <Route path="/checkout" element={<Checkout/>}/>
 
         <Route
           path="/home"

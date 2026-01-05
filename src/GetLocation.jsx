@@ -37,7 +37,7 @@ export default function GetLocation({ close }) {
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-      <div className="bg-white w-[420px] rounded-xl p-5">
+      <div className="bg-white w-105 rounded-xl p-5">
 
         <div className="flex justify-between items-center mb-3">
           <h2 className="font-bold text-lg">Delivery address</h2>

@@ -14,12 +14,13 @@ import { useAuthStore } from "./store/useAuthStore";
 import { Link } from "react-router-dom";
 import { useCartStore } from "./store/useCartStore";
 import { useLocationStore } from "./store/useLocationStore";
-
+import CartDrawer from "./components/CartDrawer";
 
 const Navbar = () => {
   const user = useAuthStore(state => state.user);
   const logout = useAuthStore(state => state.logout);
-
+  const addItem = useCartStore((state) => state.addItem);
+  const [openCart, setOpenCart] = useState(false);
   const cart = useCartStore(state => state.cart);
 
   const [openLocation, setOpenLocation] = useState(false);
@@ -71,8 +72,10 @@ const Navbar = () => {
 <div className="flex items-center gap-6 ">
 {user ? (
   <div className="flex items-center gap-4">
-    <Link to="/cart">
-      <button className="relative text-xl px-4 py-1">
+   
+      <button className="relative text-xl px-4 py-1"
+                onClick={() => setOpenCart(true)}
+      >
         <LuShoppingCart />
         {cart.length > 0 && (
           <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -80,7 +83,7 @@ const Navbar = () => {
           </span>
         )}
       </button>
-    </Link>
+   
 
     <button
       onClick={logout}
@@ -107,7 +110,7 @@ const Navbar = () => {
 
      {openLocation && <GetLocation close={() => setOpenLocation(false)} />}
 
-
+ <CartDrawer open={openCart} onClose={() => setOpenCart(false)} />
     </div>
   );
 };
