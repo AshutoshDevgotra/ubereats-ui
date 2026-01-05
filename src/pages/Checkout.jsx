@@ -5,7 +5,7 @@ import {useCartStore} from "../store/useCartStore";
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
 
   return (
-    <div className="p-10 max-w-xl mx-auto">
+    <div className="p-10 max-w-xl mx-auto mt-16">
       <h1 className="text-2xl font-bold mb-4">Checkout</h1>
       {cart.map(i => (
         <div key={i.id} className="flex justify-between mb-2">
