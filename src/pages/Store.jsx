@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "../navbar";
-import { useCartStore } from "../store/useCartStore";
+import  useCartStore  from "../store/useCartStore";
 
 export default function Store() {
   const { slug } = useParams();

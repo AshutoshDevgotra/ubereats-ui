@@ -1,13 +1,13 @@
 import { create } from "zustand";
 
-export const useCartStore = create((set, get) => ({
+const useCartStore = create((set, get) => ({
   cart: [],
   store: null,
 
   addItem: (item, store) => {
     const { cart, store: activeStore } = get();
 
-    // Switching restaurant resets cart
+    // If switching restaurant, reset cart
     if (activeStore && activeStore !== store) {
       set({ cart: [], store });
     }
@@ -26,5 +26,7 @@ export const useCartStore = create((set, get) => ({
   },
 
   removeItem: id => set({ cart: get().cart.filter(i => i._id !== id) }),
-  clearCart: () => set({ cart: [], store: null })
+  clearCart: () => set({ cart: [], store: null }),
 }));
+
+export default useCartStore;

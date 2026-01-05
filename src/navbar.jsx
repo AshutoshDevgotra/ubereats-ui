@@ -12,7 +12,7 @@ import { Search } from "lucide-react";
 import SearchBar from "./SearchBar.js";
 import { useAuthStore } from "./store/useAuthStore";
 import { Link } from "react-router-dom";
-import { useCartStore } from "./store/useCartStore";
+import  useCartStore  from "./store/useCartStore";
 import { useLocationStore } from "./store/useLocationStore";
 import CartDrawer from "./components/CartDrawer";
 

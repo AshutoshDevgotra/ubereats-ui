@@ -1,8 +1,8 @@
 
 import { useNavigate } from "react-router-dom";
-import {useCartStore} from "../store/useCartStore";
+import useCartStore from "../store/useCartStore";
 
- function CartDrawer({ open, onClose }) {
+ export default function CartDrawer({ open, onClose }) {
   const { cart } = useCartStore();
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ import {useCartStore} from "../store/useCartStore";
         {cart.length === 0 && <p>No items in cart</p>}
 
         {cart.map(i => (
-          <div key={i.id} className="flex justify-between border p-2 rounded">
+          <div key={i._id} className="flex justify-between border p-2 rounded">
             <div>
               <p className="font-semibold">{i.name}</p>
               <p>₹{i.price} × {i.qty}</p>
@@ -46,4 +46,3 @@ import {useCartStore} from "../store/useCartStore";
   );
 }
 
-export default CartDrawer;
