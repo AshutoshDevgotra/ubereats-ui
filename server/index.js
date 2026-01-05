@@ -19,7 +19,7 @@ const app = express();
 
 /* Razorpay Init */
 const razorpay = new Razorpay({
-  key_id: process.env.VITE_RAZORPAY_KEY_ID,
+  key_id: process.env.RAZORPAY_KEY_ID,
   key_secret: process.env.RAZORPAY_SECRET,
 });
 
@@ -45,19 +45,28 @@ app.get("/", (req, res) => res.send("API running"));
 /* Create Razorpay Order */
 app.post("/api/payment/create-order", async (req, res) => {
   try {
-    const { amount } = req.body;
+    let { amount } = req.body;
+
+    amount = Number(amount);
+
+    if (!amount || amount < 1) {
+      return res.status(400).json({ error: "Invalid amount" });
+    }
 
     const order = await razorpay.orders.create({
       amount: amount * 100,
       currency: "INR",
+      receipt: "receipt_" + Date.now()
     });
 
     res.json(order);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Payment order creation failed" });
+    console.error("RAZORPAY ERROR:", err);
+    res.status(500).json({ error: "Order creation failed" });
   }
 });
+
+
 
 /* Verify Razorpay Payment */
 app.post("/api/payment/verify", (req, res) => {
@@ -65,7 +74,7 @@ app.post("/api/payment/verify", (req, res) => {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
 
     const sign = crypto
-      .createHmac("sha256", process.env.VITE_RAZORPAY_SECRET)
+      .createHmac("sha256", process.env.RAZORPAY_SECRET)
       .update(razorpay_order_id + "|" + razorpay_payment_id)
       .digest("hex");
 
