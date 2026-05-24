@@ -4,6 +4,8 @@ import Sidebar from "./SideBar";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import Home from "./pages/Home";
 import Store from "./pages/Store";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -17,6 +19,8 @@ export default function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
 
         <Route path="/store/:slug" element={<Store />} />
         <Route path="/checkout" element={<Checkout/>}/>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 
 
@@ -24,7 +24,7 @@ const Login = () => {
 
     // store session
     login(data.user, data.token);     // ← THIS is the correct call
-navigate("/home");
+    navigate("/home");
   };
 
   return (
@@ -36,7 +36,7 @@ navigate("/home");
           name="email"
           placeholder="Email"
           onChange={handleChange}
-          className="border p-2 mb-3 w-full rounded"
+          className="border p-2 mb-3 w-full rounded text-sm focus:outline-none focus:ring-1 focus:ring-black focus:border-black"
         />
 
         <input
@@ -44,12 +44,21 @@ navigate("/home");
           type="password"
           placeholder="Password"
           onChange={handleChange}
-          className="border p-2 mb-4 w-full rounded"
+          className="border p-2 mb-2 w-full rounded text-sm focus:outline-none focus:ring-1 focus:ring-black focus:border-black"
         />
+
+        <div className="flex justify-between items-center mb-5">
+          <Link to="/signup" className="text-xs text-gray-500 hover:text-black transition-colors">
+            Create an account
+          </Link>
+          <Link to="/forgot-password" className="text-xs text-gray-500 hover:text-black transition-colors font-medium">
+            Forgot Password?
+          </Link>
+        </div>
 
         <button
           onClick={handleLogin}
-          className="bg-black text-white w-full py-2 rounded"
+          className="bg-black text-white w-full py-2 rounded font-medium hover:bg-neutral-800 transition-colors duration-200"
         >
           Login
         </button>
