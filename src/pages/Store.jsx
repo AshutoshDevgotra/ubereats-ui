@@ -2,16 +2,17 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "../navbar";
 import  useCartStore  from "../store/useCartStore";
+import { API_BASE_URL } from "../config.js";
 
 export default function Store() {
   const { slug } = useParams();
   const [store, setStore] = useState(null);
 
   const addItem = useCartStore(state => state.addItem);
-const [toast, setToast] = useState(null);
+  const [toast, setToast] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/restaurants/store/${slug}`)
+    fetch(`${API_BASE_URL}/api/restaurants/store/${slug}`)
       .then(res => res.json())
       .then(setStore);
   }, [slug]);
@@ -26,7 +27,7 @@ const [toast, setToast] = useState(null);
       <div className="px-10 pt-20">
         <div className="relative h-64 rounded-xl overflow-hidden">
           <img
-            src={`http://localhost:5000${store.cover_image}`}
+            src={`${API_BASE_URL}${store.cover_image}`}
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50 flex items-end p-6">
@@ -46,7 +47,7 @@ const [toast, setToast] = useState(null);
           {store.menu.map(item => (
             <div key={item._id} className="border rounded-xl overflow-hidden bg-white">
               <img
-                src={`http://localhost:5000${item.image}`}
+                src={`${API_BASE_URL}${item.image}`}
                 className="h-40 w-full object-cover"
               />
               <div className="p-4">

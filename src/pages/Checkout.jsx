@@ -1,4 +1,5 @@
 import useCartStore from "../store/useCartStore";
+import { API_BASE_URL } from "../config.js";
 
 function Checkout() {
   const { cart } = useCartStore();
@@ -7,7 +8,7 @@ function Checkout() {
   const payNow = async () => {
     if (total < 1) return alert("Cart is empty");
 
-    const res = await fetch("http://localhost:5000/api/payment/create-order", {
+    const res = await fetch(`${API_BASE_URL}/api/payment/create-order`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount: total }),
@@ -23,7 +24,7 @@ function Checkout() {
       description: "Food Order",
       order_id: order.id,
       handler: async (response) => {
-        await fetch("http://localhost:5000/api/payment/verify", {
+        await fetch(`${API_BASE_URL}/api/payment/verify`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(response),
