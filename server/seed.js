@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import Restaurant from "./models/Restaurant.js";
 import process from "node:process";
-dotenv.config();
+dotenv.config({ path: ".env.local" });
+dotenv.config({ path: ".env" });
 await mongoose.connect(process.env.MONGO_URI);
 
 await Restaurant.deleteMany();
