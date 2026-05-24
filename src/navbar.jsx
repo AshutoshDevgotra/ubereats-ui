@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LoginButton from "./loginButton.jsx";
+import LoginButton from "./LoginButton.jsx";
 import SignupButton from "./SignupButton.jsx";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
@@ -9,7 +9,7 @@ import GetLocation from "./GetLocation.jsx";
 import { FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { Search } from "lucide-react";
-import SearchBar from "./SearchBar.js";
+import SearchBar from "./SearchBar";
 import { useAuthStore } from "./store/useAuthStore";
 import { Link } from "react-router-dom";
 import  useCartStore  from "./store/useCartStore";

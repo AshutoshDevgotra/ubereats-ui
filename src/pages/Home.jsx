@@ -1,4 +1,4 @@
-import Cuisine from "../cuisine";
+import Cuisine from "../Cuisine";
 import Filters from "../Filters";
 import Hero from "../hero";
 import SideBar from "../SideBar";
